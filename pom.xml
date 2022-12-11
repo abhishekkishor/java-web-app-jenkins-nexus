@@ -8,9 +8,8 @@
 	<name>simple-app</name>
 	<url>http://maven.apache.org</url>
 	
-	<dependencies>
 
-			<properties>
+	<properties>
 		<!-- versions -->
 		
 		<spring.version>5.0.7.RELEASE</spring.version>
