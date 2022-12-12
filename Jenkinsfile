@@ -16,11 +16,13 @@ node{
     
     stage("Nexus Repo") {
         
+        def readPom = readMavenPom file: 'pom.xml'
+        
         nexusArtifactUploader artifacts: [
             [
                 artifactId: 'simple-app',
                 classifier: '',
-                file: 'target/simple-app-1.0.war',
+                file: "target/simple-app-${readPom.version}.war",
                 type: 'war'
             ]
         
@@ -28,11 +30,11 @@ node{
                 
         credentialsId: 'nexus3', 
         groupId: 'in.javahome', 
-        nexusUrl: '13.214.151.217:8081', 
+        nexusUrl: '172.31.8.152:8081', 
         nexusVersion: 'nexus3', 
         protocol: 'http', 
         repository: 'java-app',
-        version: '1.0'
+        version: "${readPom.version}"
         
     }
     
