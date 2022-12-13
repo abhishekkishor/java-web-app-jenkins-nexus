@@ -1,5 +1,7 @@
 node{
     
+    currentBuild.displayName = "java-app-#"+currentBuild.number
+    
     stage("Git Clone") {
         
         git url: 'https://github.com/abhishekkishor/java-web-app-jenkins-nexus.git', branch:'master'
